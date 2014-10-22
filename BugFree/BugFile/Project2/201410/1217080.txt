@@ -1,0 +1,424 @@
+
+
+.
+.
+JAVA Memory arguments: -Xms512M -Xmx512M -XX:PermSize=128M -XX:MaxPermSize=128M
+.
+WLS Start Mode=Development
+.
+CLASSPATH=/bea/weblogic922/server/weblogic_crack.jar:/xhprod/bxapps/lib:/xhprod/bxapps/lib/commons-lang-2.2.jar::/bea/patch_weblogic922/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/bea/jdk150_10/lib/tools.jar:/bea/weblogic922/server/lib/weblogic_sp.jar:/bea/weblogic922/server/lib/weblogic.jar:/bea/weblogic922/server/lib/webservices.jar::/bea/weblogic922/common/eval/pointbase/lib/pbclient51.jar:/bea/weblogic922/server/lib/xqrl.jar::
+.
+PATH=/bea/weblogic922/server/bin:/bea/jdk150_10/jre/bin:/bea/jdk150_10/bin:/usr/sfw/bin:/usr/local/bin:/usr/bin:/bin
+.
+***************************************************
+*  To start WebLogic Server, use a username and   *
+*  password assigned to an admin-level user.  For *
+*  server administration, use the WebLogic Server *
+*  console at http://hostname:port/console        *
+***************************************************
+starting weblogic with Java version:
+java version "1.5.0_10"
+Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_10-b03)
+Java HotSpot(TM) Server VM (build 1.5.0_10-b03, mixed mode)
+Starting WLS with line:
+/bea/jdk150_10/bin/java  -server -Dps=xhtestserver -Xms512M -Xmx512M -XX:PermSize=128M -XX:MaxPermSize=128M -Djava.awt.headless=true  -Xverify:none  -da -Dplatform.home=/bea/weblogic922 -Dwls.home=/bea/weblogic922/server -Dwli.home=/bea/weblogic922/integration  -Dweblogic.management.discover=true  -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=/bea/patch_weblogic922/profiles/default/sysext_manifest_classpath -Dweblogic.Name=xhtestserver -Djava.security.policy=/bea/weblogic922/server/lib/weblogic.policy   weblogic.Server
+<2014-10-16 下午02时43分39秒 CST> <Notice> <WebLogicServer> <BEA-000395> <Following extensions directory contents added to the end of the classpath:
+/ftpdata/weblogic/bea/weblogic922/platform/lib/p13n/p13n-schemas.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/p13n/p13n_common.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/p13n/p13n_system.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/wlp/netuix_common.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/wlp/netuix_schemas.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/wlp/netuix_system.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/wlp/wsrp-common.jar> 
+<2014-10-16 下午02时43分41秒 CST> <Info> <WebLogicServer> <BEA-000377> <Starting WebLogic Server with Java HotSpot(TM) Server VM Version 1.5.0_10-b03 from Sun Microsystems Inc.> 
+<2014-10-16 下午02时43分44秒 CST> <Info> <Management> <BEA-141107> <Version: WebLogic Server 9.2 MP2  Mon Jun 25 01:32:01 EDT 2007 952826 > 
+<2014-10-16 下午02时43分55秒 CST> <Info> <WebLogicServer> <BEA-000215> <Loaded License : /bea/license.bea> 
+<2014-10-16 下午02时43分55秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STARTING> 
+<2014-10-16 下午02时43分55秒 CST> <Info> <WorkManager> <BEA-002900> <Initializing self-tuning thread pool> 
+<2014-10-16 下午02时43分56秒 CST> <Notice> <Log Management> <BEA-170019> <The server log file /ftpdata/weblogic/xhprod/domains/xhtestdomain/servers/xhtestserver/logs/xhtestserver.log is opened. All server side log events will be written to this file.> 
+<2014-10-16 下午02时44分03秒 CST> <Notice> <Security> <BEA-090082> <Security initializing using security realm myrealm.> 
+<2014-10-16 下午02时44分10秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STANDBY> 
+<2014-10-16 下午02时44分10秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STARTING> 
+
+
+
+
+
+
+被杀掉
+.
+.
+JAVA Memory arguments: -Xms512M -Xmx512M -XX:PermSize=128M -XX:MaxPermSize=128M
+.
+WLS Start Mode=Development
+.
+CLASSPATH=/bea/weblogic922/server/weblogic_crack.jar:/xhprod/bxapps/lib:/xhprod/bxapps/lib/commons-lang-2.2.jar::/bea/patch_weblogic922/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/bea/jdk150_10/lib/tools.jar:/bea/weblogic922/server/lib/weblogic_sp.jar:/bea/weblogic922/server/lib/weblogic.jar:/bea/weblogic922/server/lib/webservices.jar::/bea/weblogic922/common/eval/pointbase/lib/pbclient51.jar:/bea/weblogic922/server/lib/xqrl.jar::
+.
+PATH=/bea/weblogic922/server/bin:/bea/jdk150_10/jre/bin:/bea/jdk150_10/bin:/usr/sfw/bin:/usr/local/bin:/usr/bin:/bin
+.
+***************************************************
+*  To start WebLogic Server, use a username and   *
+*  password assigned to an admin-level user.  For *
+*  server administration, use the WebLogic Server *
+*  console at http://hostname:port/console        *
+***************************************************
+starting weblogic with Java version:
+java version "1.5.0_10"
+Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_10-b03)
+Java HotSpot(TM) Server VM (build 1.5.0_10-b03, mixed mode)
+Starting WLS with line:
+/bea/jdk150_10/bin/java  -server -Dps=xhtestserver -Xms512M -Xmx512M -XX:PermSize=128M -XX:MaxPermSize=128M -Djava.awt.headless=true  -Xverify:none  -da -Dplatform.home=/bea/weblogic922 -Dwls.home=/bea/weblogic922/server -Dwli.home=/bea/weblogic922/integration  -Dweblogic.management.discover=true  -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=/bea/patch_weblogic922/profiles/default/sysext_manifest_classpath -Dweblogic.Name=xhtestserver -Djava.security.policy=/bea/weblogic922/server/lib/weblogic.policy   weblogic.Server
+<2014-10-16 下午02时47分05秒 CST> <Notice> <WebLogicServer> <BEA-000395> <Following extensions directory contents added to the end of the classpath:
+/ftpdata/weblogic/bea/weblogic922/platform/lib/p13n/p13n-schemas.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/p13n/p13n_common.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/p13n/p13n_system.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/wlp/netuix_common.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/wlp/netuix_schemas.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/wlp/netuix_system.jar:/ftpdata/weblogic/bea/weblogic922/platform/lib/wlp/wsrp-common.jar> 
+<2014-10-16 下午02时47分06秒 CST> <Info> <WebLogicServer> <BEA-000377> <Starting WebLogic Server with Java HotSpot(TM) Server VM Version 1.5.0_10-b03 from Sun Microsystems Inc.> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<2014-10-16 下午02时47分09秒 CST> <Info> <Management> <BEA-141107> <Version: WebLogic Server 9.2 MP2  Mon Jun 25 01:32:01 EDT 2007 952826 > 
+<2014-10-16 下午02时47分21秒 CST> <Info> <WebLogicServer> <BEA-000215> <Loaded License : /bea/license.bea> 
+<2014-10-16 下午02时47分21秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STARTING> 
+<2014-10-16 下午02时47分21秒 CST> <Info> <WorkManager> <BEA-002900> <Initializing self-tuning thread pool> 
+<2014-10-16 下午02时47分21秒 CST> <Notice> <Log Management> <BEA-170019> <The server log file /ftpdata/weblogic/xhprod/domains/xhtestdomain/servers/xhtestserver/logs/xhtestserver.log is opened. All server side log events will be written to this file.> 
+<2014-10-16 下午02时47分29秒 CST> <Notice> <Security> <BEA-090082> <Security initializing using security realm myrealm.> 
+<2014-10-16 下午02时47分35秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STANDBY> 
+<2014-10-16 下午02时47分35秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STARTING> 
+<2014-10-16 下午02时50分50秒 CST> <Warning> <JDBC> <BEA-001129> <Received exception while creating connection for pool "appDS": Io 异常: The Network Adapter could not establish the connection> 
+^C
+[GM5220a01][weblogic][/xhprod/domains/xhtestdomain]#
+[GM5220a01][weblogic][/xhprod/domains/xhtestdomain]#
+[GM5220a01][weblogic][/xhprod/domains/xhtestdomain]#
+[GM5220a01][weblogic][/xhprod/domains/xhtestdomain]#tail -f xhtest.log 
+<2014-10-16 下午02时47分06秒 CST> <Info> <WebLogicServer> <BEA-000377> <Starting WebLogic Server with Java HotSpot(TM) Server VM Version 1.5.0_10-b03 from Sun Microsystems Inc.> 
+<2014-10-16 下午02时47分09秒 CST> <Info> <Management> <BEA-141107> <Version: WebLogic Server 9.2 MP2  Mon Jun 25 01:32:01 EDT 2007 952826 > 
+<2014-10-16 下午02时47分21秒 CST> <Info> <WebLogicServer> <BEA-000215> <Loaded License : /bea/license.bea> 
+<2014-10-16 下午02时47分21秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STARTING> 
+<2014-10-16 下午02时47分21秒 CST> <Info> <WorkManager> <BEA-002900> <Initializing self-tuning thread pool> 
+<2014-10-16 下午02时47分21秒 CST> <Notice> <Log Management> <BEA-170019> <The server log file /ftpdata/weblogic/xhprod/domains/xhtestdomain/servers/xhtestserver/logs/xhtestserver.log is opened. All server side log events will be written to this file.> 
+<2014-10-16 下午02时47分29秒 CST> <Notice> <Security> <BEA-090082> <Security initializing using security realm myrealm.> 
+<2014-10-16 下午02时47分35秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STANDBY> 
+<2014-10-16 下午02时47分35秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STARTING> 
+<2014-10-16 下午02时50分50秒 CST> <Warning> <JDBC> <BEA-001129> <Received exception while creating connection for pool "appDS": Io 异常: The Network Adapter could not establish the connection> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pw^C
+[GM5220a01][weblogic][/xhprod/domains/xhtestdomain]#
+[GM5220a01][weblogic][/xhprod/domains/xhtestdomain]#pwd
+/xhprod/domains/xhtestdomain
+[GM5220a01][weblogic][/xhprod/domains/xhtestdomain]#tail -f xhtest.log 
+<2014-10-16 下午02时47分06秒 CST> <Info> <WebLogicServer> <BEA-000377> <Starting WebLogic Server with Java HotSpot(TM) Server VM Version 1.5.0_10-b03 from Sun Microsystems Inc.> 
+<2014-10-16 下午02时47分09秒 CST> <Info> <Management> <BEA-141107> <Version: WebLogic Server 9.2 MP2  Mon Jun 25 01:32:01 EDT 2007 952826 > 
+<2014-10-16 下午02时47分21秒 CST> <Info> <WebLogicServer> <BEA-000215> <Loaded License : /bea/license.bea> 
+<2014-10-16 下午02时47分21秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STARTING> 
+<2014-10-16 下午02时47分21秒 CST> <Info> <WorkManager> <BEA-002900> <Initializing self-tuning thread pool> 
+<2014-10-16 下午02时47分21秒 CST> <Notice> <Log Management> <BEA-170019> <The server log file /ftpdata/weblogic/xhprod/domains/xhtestdomain/servers/xhtestserver/logs/xhtestserver.log is opened. All server side log events will be written to this file.> 
+<2014-10-16 下午02时47分29秒 CST> <Notice> <Security> <BEA-090082> <Security initializing using security realm myrealm.> 
+<2014-10-16 下午02时47分35秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STANDBY> 
+<2014-10-16 下午02时47分35秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STARTING> 
+<2014-10-16 下午02时50分50秒 CST> <Warning> <JDBC> <BEA-001129> <Received exception while creating connection for pool "appDS": Io 异常: The Network Adapter could not establish the connection> 
+<2014-10-16 下午02时54分02秒 CST> <Warning> <JDBC> <BEA-001129> <Received exception while creating connection for pool "bizlogDS": Io 异常: The Network Adapter could not establish the connection> 
+<2014-10-16 下午02时54分07秒 CST> <Warning> <HTTP> <BEA-101369> <weblogic.servlet.internal.WebAppServletContext@dea6bc - appName: 'ss', name: 'ss', context-path: '/ss': The encoding jsp-descriptor param has been deprecated. Consider declaring the encoding in the jsp-config element (web.xml) or as a page directive (pageEncoding) instead.> 
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /export/home/deploy/xhdomain/ets.log (No such file or directory)
+        at java.io.FileOutputStream.openAppend(Native Method)
+        at java.io.FileOutputStream.<init>(FileOutputStream.java:177)
+        at java.io.FileOutputStream.<init>(FileOutputStream.java:102)
+        at org.apache.log4j.FileAppender.setFile(FileAppender.java:289)
+        at org.apache.log4j.RollingFileAppender.setFile(RollingFileAppender.java:165)
+        at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:163)
+        at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:256)
+        at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:132)
+        at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:96)
+        at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:654)
+        at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:612)
+        at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:533)
+        at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:417)
+        at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:441)
+        at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:468)
+        at org.apache.log4j.LogManager.<clinit>(LogManager.java:122)
+        at org.apache.log4j.Logger.getLogger(Logger.java:104)
+        at org.apache.commons.logging.impl.Log4JLogger.getLogger(Log4JLogger.java:229)
+        at org.apache.commons.logging.impl.Log4JLogger.<init>(Log4JLogger.java:65)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:494)
+        at org.apache.commons.logging.impl.LogFactoryImpl.newInstance(LogFactoryImpl.java:529)
+        at org.apache.commons.logging.impl.LogFactoryImpl.getInstance(LogFactoryImpl.java:235)
+        at org.apache.commons.logging.LogFactory.getLog(LogFactory.java:370)
+        at com.baosight.baosteel.cas2.client.Cas2SessionListener.<clinit>(Cas2SessionListener.java:23)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:494)
+        at java.lang.Class.newInstance0(Class.java:350)
+        at java.lang.Class.newInstance(Class.java:303)
+        at weblogic.servlet.internal.EventsManager.registerEventListener(EventsManager.java:276)
+        at weblogic.servlet.internal.EventsManager.registerEventListeners(EventsManager.java:258)
+        at weblogic.servlet.internal.WebAppServletContext.initContextListeners(WebAppServletContext.java:1590)
+        at weblogic.servlet.internal.WebAppServletContext.prepare(WebAppServletContext.java:1035)
+        at weblogic.servlet.internal.HttpServer.doPostContextInit(HttpServer.java:437)
+        at weblogic.servlet.internal.HttpServer.loadWebApp(HttpServer.java:412)
+        at weblogic.servlet.internal.WebAppModule.registerWebApp(WebAppModule.java:549)
+        at weblogic.servlet.internal.WebAppModule.prepare(WebAppModule.java:284)
+        at weblogic.application.internal.flow.ScopedModuleDriver.prepare(ScopedModuleDriver.java:176)
+        at weblogic.application.internal.flow.ModuleListenerInvoker.prepare(ModuleListenerInvoker.java:93)
+        at weblogic.application.internal.flow.DeploymentCallbackFlow$1.next(DeploymentCallbackFlow.java:360)
+        at weblogic.application.utils.StateMachineDriver.nextState(StateMachineDriver.java:26)
+        at weblogic.application.internal.flow.DeploymentCallbackFlow.prepare(DeploymentCallbackFlow.java:56)
+        at weblogic.application.internal.flow.DeploymentCallbackFlow.prepare(DeploymentCallbackFlow.java:46)
+        at weblogic.application.internal.BaseDeployment$1.next(BaseDeployment.java:615)
+        at weblogic.application.utils.StateMachineDriver.nextState(StateMachineDriver.java:26)
+        at weblogic.application.internal.BaseDeployment.prepare(BaseDeployment.java:191)
+        at weblogic.application.internal.DeploymentStateChecker.prepare(DeploymentStateChecker.java:147)
+        at weblogic.deploy.internal.targetserver.AppContainerInvoker.prepare(AppContainerInvoker.java:61)
+        at weblogic.deploy.internal.targetserver.AppDeployment.prepare(AppDeployment.java:137)
+        at weblogic.management.deploy.internal.DeploymentAdapter$1.doPrepare(DeploymentAdapter.java:38)
+        at weblogic.management.deploy.internal.DeploymentAdapter.prepare(DeploymentAdapter.java:177)
+        at weblogic.management.deploy.internal.AppTransition$1.transitionApp(AppTransition.java:21)
+        at weblogic.management.deploy.internal.ConfiguredDeployments.transitionApps(ConfiguredDeployments.java:233)
+        at weblogic.management.deploy.internal.ConfiguredDeployments.prepare(ConfiguredDeployments.java:165)
+        at weblogic.management.deploy.internal.ConfiguredDeployments.deploy(ConfiguredDeployments.java:122)
+        at weblogic.management.deploy.internal.DeploymentServerService.resume(DeploymentServerService.java:173)
+        at weblogic.management.deploy.internal.DeploymentServerService.start(DeploymentServerService.java:89)
+        at weblogic.t3.srvr.SubsystemRequest.run(SubsystemRequest.java:64)
+        at weblogic.work.ExecuteThread.execute(ExecuteThread.java:209)
+        at weblogic.work.ExecuteThread.run(ExecuteThread.java:181)
+<2014-10-16 下午02时54分17秒 CST> <Warning> <JDBC> <BEA-001129> <Received exception while creating connection for pool "appDS": Io 异常: The Network Adapter could not establish the connection> 
+[Logging]Registered Category PLAT:平台日志
+[Logging]Register CategoryMapping log.com.baosight.iplat4j:PLAT
+[Logging]Register CategoryMapping log:
+org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is weblogic.jdbc.extensions.PoolDisabledSQLException: weblogic.common.resourcepool.ResourceDisabledException: Pool appDS is disabled, cannot allocate resources to applications..
+Caused by: weblogic.jdbc.extensions.PoolDisabledSQLException: weblogic.common.resourcepool.ResourceDisabledException: Pool appDS is disabled, cannot allocate resources to applications..
+        at weblogic.jdbc.common.internal.JDBCUtil.wrapAndThrowResourceException(JDBCUtil.java:242)
+        at weblogic.jdbc.pool.Driver.connect(Driver.java:161)
+        at weblogic.jdbc.jts.Driver.getNonTxConnection(Driver.java:647)
+        at weblogic.jdbc.jts.Driver.connect(Driver.java:137)
+        at weblogic.jdbc.common.internal.RmiDataSource.getConnection(RmiDataSource.java:359)
+        at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:112)
+        at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:77)
+        at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:328)
+        at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:403)
+        at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:411)
+        at org.springframework.jdbc.core.JdbcTemplate.queryForList(JdbcTemplate.java:442)
+        at com.baosight.iplat4j.core.sqldao.impl.NamedSqlDaoSpringJdbcImpl.queryForList(NamedSqlDaoSpringJdbcImpl.java:537)
+        at com.baosight.iplat4j.core.resource.impl.DbResourceProvider.loadProviders(DbResourceProvider.java:39)
+        at com.baosight.iplat4j.core.resource.impl.DbResourceProvider.init(DbResourceProvider.java:31)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+        at java.lang.reflect.Method.invoke(Method.java:585)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeCustomInitMethod(AbstractAutowireCapableBeanFactory.java:1160)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1122)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1085)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:429)
+        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:250)
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:247)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:161)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:273)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:346)
+        at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+        at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+        at com.baosight.iplat4j.core.spring.SpringApplicationContext.<clinit>(SpringApplicationContext.java:42)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:494)
+        at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:84)
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:71)
+        at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:150)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:745)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:683)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:388)
+        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:250)
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:247)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:161)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:273)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:346)
+        at org.springframework.web.context.support.AbstractRefreshableWebApplicationContext.refresh(AbstractRefreshableWebApplicationContext.java:156)
+        at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:246)
+        at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:184)
+        at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:49)
+        at weblogic.servlet.internal.EventsManager$FireContextListenerAction.run(EventsManager.java:376)
+        at weblogic.security.acl.internal.AuthenticatedSubject.doAs(AuthenticatedSubject.java:321)
+        at weblogic.security.service.SecurityManager.runAs(SecurityManager.java:121)
+        at weblogic.servlet.internal.EventsManager.notifyContextCreatedEvent(EventsManager.java:82)
+        at weblogic.servlet.internal.WebAppServletContext.preloadResources(WebAppServletContext.java:1608)
+        at weblogic.servlet.internal.WebAppServletContext.start(WebAppServletContext.java:2750)
+        at weblogic.servlet.internal.WebAppModule.startContexts(WebAppModule.java:889)
+        at weblogic.servlet.internal.WebAppModule.start(WebAppModule.java:333)
+        at weblogic.application.internal.flow.ModuleStateDriver$3.next(ModuleStateDriver.java:204)
+        at weblogic.application.utils.StateMachineDriver.nextState(StateMachineDriver.java:26)
+        at weblogic.application.internal.flow.ModuleStateDriver.start(ModuleStateDriver.java:60)
+        at weblogic.application.internal.flow.ScopedModuleDriver.start(ScopedModuleDriver.java:200)
+        at weblogic.application.internal.flow.ModuleListenerInvoker.start(ModuleListenerInvoker.java:117)
+        at weblogic.application.internal.flow.ModuleStateDriver$3.next(ModuleStateDriver.java:204)
+        at weblogic.application.utils.StateMachineDriver.nextState(StateMachineDriver.java:26)
+        at weblogic.application.internal.flow.ModuleStateDriver.start(ModuleStateDriver.java:60)
+        at weblogic.application.internal.flow.StartModulesFlow.activate(StartModulesFlow.java:26)
+        at weblogic.application.internal.BaseDeployment$2.next(BaseDeployment.java:635)
+        at weblogic.application.utils.StateMachineDriver.nextState(StateMachineDriver.java:26)
+        at weblogic.application.internal.BaseDeployment.activate(BaseDeployment.java:212)
+        at weblogic.application.internal.DeploymentStateChecker.activate(DeploymentStateChecker.java:154)
+        at weblogic.deploy.internal.targetserver.AppContainerInvoker.activate(AppContainerInvoker.java:80)
+        at weblogic.deploy.internal.targetserver.BasicDeployment.activate(BasicDeployment.java:181)
+        at weblogic.deploy.internal.targetserver.BasicDeployment.activateFromServerLifecycle(BasicDeployment.java:358)
+        at weblogic.management.deploy.internal.DeploymentAdapter$1.doActivate(DeploymentAdapter.java:52)
+        at weblogic.management.deploy.internal.DeploymentAdapter.activate(DeploymentAdapter.java:186)
+        at weblogic.management.deploy.internal.AppTransition$2.transitionApp(AppTransition.java:30)
+        at weblogic.management.deploy.internal.ConfiguredDeployments.transitionApps(ConfiguredDeployments.java:233)
+        at weblogic.management.deploy.internal.ConfiguredDeployments.activate(ConfiguredDeployments.java:169)
+        at weblogic.management.deploy.internal.ConfiguredDeployments.deploy(ConfiguredDeployments.java:123)
+        at weblogic.management.deploy.internal.DeploymentServerService.resume(DeploymentServerService.java:173)
+        at weblogic.management.deploy.internal.DeploymentServerService.start(DeploymentServerService.java:89)
+        at weblogic.t3.srvr.SubsystemRequest.run(SubsystemRequest.java:64)
+        at weblogic.work.ExecuteThread.execute(ExecuteThread.java:209)
+        at weblogic.work.ExecuteThread.run(ExecuteThread.java:181)
+-------------------------加密库初始化开始-------------------------
+-------------------------加密库初始化成功-------------------------
+-------------------------企业证书初始化开始------------------------------
+-------------------------加密库初始化异常-------------------------
+850909: PFX私钥证书不存在
+java.io.FileNotFoundException: /export/home/deploy/ssapp/applications/ss/GONP/key/bggm.pfx (No such file or directory)
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tele_config' defined in file [/ftpdata/weblogic/stapps/ssapp/applications/ss/WEB-INF/classes/spring/framework/applicationContext-tele.xml]: Invocation of init method failed; nested exception is org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is weblogic.jdbc.extensions.PoolDisabledSQLException: weblogic.common.resourcepool.ResourceDisabledException: Pool appDS is disabled, cannot allocate resources to applications..
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is weblogic.jdbc.extensions.PoolDisabledSQLException: weblogic.common.resourcepool.ResourceDisabledException: Pool appDS is disabled, cannot allocate resources to applications..
+Caused by: weblogic.jdbc.extensions.PoolDisabledSQLException: weblogic.common.resourcepool.ResourceDisabledException: Pool appDS is disabled, cannot allocate resources to applications..
+        at weblogic.jdbc.common.internal.JDBCUtil.wrapAndThrowResourceException(JDBCUtil.java:242)
+        at weblogic.jdbc.pool.Driver.connect(Driver.java:161)
+        at weblogic.jdbc.jts.Driver.getNonTxConnection(Driver.java:647)
+        at weblogic.jdbc.jts.Driver.connect(Driver.java:137)
+        at weblogic.jdbc.common.internal.RmiDataSource.getConnection(RmiDataSource.java:359)
+        at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:112)
+        at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:77)
+        at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:328)
+        at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:403)
+        at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:411)
+        at org.springframework.jdbc.core.JdbcTemplate.queryForList(JdbcTemplate.java:442)
+        at com.baosight.iplat4j.core.sqldao.impl.NamedSqlDaoSpringJdbcImpl.queryForList(NamedSqlDaoSpringJdbcImpl.java:537)
+        at com.baosight.iplat4j.tele.config.impl.TeleConfigMappingDbImpl.init(TeleConfigMappingDbImpl.java:26)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+        at java.lang.reflect.Method.invoke(Method.java:585)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeCustomInitMethod(AbstractAutowireCapableBeanFactory.java:1160)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1122)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1085)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:429)
+        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:250)
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:247)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:161)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:273)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:346)
+        at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+        at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+        at com.baosight.iplat4j.core.spring.SpringApplicationContext.<clinit>(SpringApplicationContext.java:42)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:494)
+        at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:84)
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:71)
+        at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:150)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:745)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:683)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:388)
+        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:250)
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:247)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:161)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:273)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:346)
+        at org.springframework.web.context.support.AbstractRefreshableWebApplicationContext.refresh(AbstractRefreshableWebApplicationContext.java:156)
+        at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:246)
+        at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:184)
+        at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:49)
+        at weblogic.servlet.internal.EventsManager$FireContextListenerAction.run(EventsManager.java:376)
+        at weblogic.security.acl.internal.AuthenticatedSubject.doAs(AuthenticatedSubject.java:321)
+        at weblogic.security.service.SecurityManager.runAs(SecurityManager.java:121)
+        at weblogic.servlet.internal.EventsManager.notifyContextCreatedEvent(EventsManager.java:82)
+        at weblogic.servlet.internal.WebAppServletContext.preloadResources(WebAppServletContext.java:1608)
+        at weblogic.servlet.internal.WebAppServletContext.start(WebAppServletContext.java:2750)
+        at weblogic.servlet.internal.WebAppModule.startContexts(WebAppModule.java:889)
+        at weblogic.servlet.internal.WebAppModule.start(WebAppModule.java:333)
+        at weblogic.application.internal.flow.ModuleStateDriver$3.next(ModuleStateDriver.java:204)
+        at weblogic.application.utils.StateMachineDriver.nextState(StateMachineDriver.java:26)
+        at weblogic.application.internal.flow.ModuleStateDriver.start(ModuleStateDriver.java:60)
+        at weblogic.application.internal.flow.ScopedModuleDriver.start(ScopedModuleDriver.java:200)
+        at weblogic.application.internal.flow.ModuleListenerInvoker.start(ModuleListenerInvoker.java:117)
+        at weblogic.application.internal.flow.ModuleStateDriver$3.next(ModuleStateDriver.java:204)
+        at weblogic.application.utils.StateMachineDriver.nextState(StateMachineDriver.java:26)
+        at weblogic.application.internal.flow.ModuleStateDriver.start(ModuleStateDriver.java:60)
+        at weblogic.application.internal.flow.StartModulesFlow.activate(StartModulesFlow.java:26)
+        at weblogic.application.internal.BaseDeployment$2.next(BaseDeployment.java:635)
+        at weblogic.application.utils.StateMachineDriver.nextState(StateMachineDriver.java:26)
+        at weblogic.application.internal.BaseDeployment.activate(BaseDeployment.java:212)
+        at weblogic.application.internal.DeploymentStateChecker.activate(DeploymentStateChecker.java:154)
+        at weblogic.deploy.internal.targetserver.AppContainerInvoker.activate(AppContainerInvoker.java:80)
+        at weblogic.deploy.internal.targetserver.BasicDeployment.activate(BasicDeployment.java:181)
+        at weblogic.deploy.internal.targetserver.BasicDeployment.activateFromServerLifecycle(BasicDeployment.java:358)
+        at weblogic.management.deploy.internal.DeploymentAdapter$1.doActivate(DeploymentAdapter.java:52)
+        at weblogic.management.deploy.internal.DeploymentAdapter.activate(DeploymentAdapter.java:186)
+        at weblogic.management.deploy.internal.AppTransition$2.transitionApp(AppTransition.java:30)
+        at weblogic.management.deploy.internal.ConfiguredDeployments.transitionApps(ConfiguredDeployments.java:233)
+        at weblogic.management.deploy.internal.ConfiguredDeployments.activate(ConfiguredDeployments.java:169)
+        at weblogic.management.deploy.internal.ConfiguredDeployments.deploy(ConfiguredDeployments.java:123)
+        at weblogic.management.deploy.internal.DeploymentServerService.resume(DeploymentServerService.java:173)
+        at weblogic.management.deploy.internal.DeploymentServerService.start(DeploymentServerService.java:89)
+        at weblogic.t3.srvr.SubsystemRequest.run(SubsystemRequest.java:64)
+        at weblogic.work.ExecuteThread.execute(ExecuteThread.java:209)
+        at weblogic.work.ExecuteThread.run(ExecuteThread.java:181)
+2014-10-16 14:54:44,320 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - PropertiesValue#pushProperty:/cas2_client.properties
+2014-10-16 14:54:44,330 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_SERVER_WEBSERVICE_URL/http://testenv.bsp.bsteel.net/baosteel_cas2/services/Cas2Service
+2014-10-16 14:54:44,330 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_SERVER_GETCOOKIE_URL/http://testenv.bsp.bsteel.net/baosteel_cas2/inner/postssokey.jsp
+2014-10-16 14:54:44,331 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_SERVER_LOGOUT_URL/http://testenv.bsp.bsteel.net/baosteel_cas2/logout.do
+2014-10-16 14:54:44,331 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_CLIENT_LOGOUT_URL/http://10.60.65.25:7011/ss/cas2/client/cas2_logout.cas2
+2014-10-16 14:54:44,331 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_OPERATION_MAXHOUR/24
+2014-10-16 14:54:44,331 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_UMC_WEBSERVICE/http://testenv.bsp.bsteel.net/baosteel_bsp/services/services
+2014-10-16 14:54:44,332 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:ICas2ClientService/com.baosight.baosteel.cas.cas2.CasClientProxyCas2Service
+2014-10-16 14:54:44,332 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_CLIENT_EXTERNFUNCTION_INITCACHE/com.baosight.baosteel.cas2.client.iface.impl.Cas2FilterExternInitCacheProcess
+2014-10-16 14:54:44,333 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_CLIENT_EXTERNFUNCTION_LOGIN/com.baosight.baosteel.cas2.client.iface.impl.Cas2FilterExternLoginProcess
+2014-10-16 14:54:44,333 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_SERVER_BASEURL/http://testenv.bsp.bsteel.net/baosteel_cas2
+2014-10-16 14:54:44,333 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:_HTTP_HEADER_HOST_STUB_/x-forwarded-for
+2014-10-16 14:54:44,334 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:APP_CLUSTER_CODE/BGGM
+2014-10-16 14:54:44,334 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_SERVER_LOGIN_URL/http://10.60.65.25:7011/ss/login.jsp
+2014-10-16 14:54:44,334 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_CLIENT_GETCOOKIE_CALLBACKURL/http://10.60.65.25:7011/ss/cas2/client/cas2_getcookie.cas2
+2014-10-16 14:54:44,334 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_CLIENT_NO_CHECKS_URLS/^/login\.jsp$,^/bglogin\.jsp$,^/ecdm0104\.jsp$,^/index\.jsp$,^/ssl\.jsp$,^/error\.jsp$,^/ss_main\.jsp$,^/mainTop\.jsp$,^/logout\.jsp$,^/rand/image\.jsp$,^/GIAM/download/download\.jsp$,^/GIAM/download/download_door\.jsp$,^/ssmain/abbulletin\.jsp$,^/keyrenew\.jsp$,^/EP/ep01\.jsp$,^/prelogin\.jsp$,^/door_main\.jsp$,^/ssmain/ab_pkg_info\.jsp$,^/ssmain/ab_pkg_list\.jsp$,^/ssmain/new_guide.jsp\.jsp$,^/bank_jk\.jsp$,^/baosteel_zlsm\.jsp$,^/login_dispose\.jsp$,^/ss_provider.jsp\.jsp$ 
+2014-10-16 14:54:44,335 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_CLIENT_BASEURL_URL/http://10.60.65.25:7011/ss
+2014-10-16 14:54:44,335 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:CAS2_SERVER_MAINTAINCOOKIE_URL/http://testenv.bsp.bsteel.net/baosteel_cas2/inner/maintaincookie.jsp
+2014-10-16 14:54:44,335 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - push value:APP_CODE/bggm
+2014-10-16 14:54:44,336 INFO [com.baosight.baosteel.cas2.common.PropertiesValue] - close file:/cas2_client.properties
+2014-10-16 14:54:44,371 INFO [com.baosight.baosteel.cas.cas2.CasFilterCas2Proxy] - 资源读取:cas_client.properties
+<2014-10-16 下午02时54分46秒 CST> <Notice> <Log Management> <BEA-170027> <The server initialized the domain log broadcaster successfully. Log messages will now be broadcasted to the domain log.> 
+<2014-10-16 下午02时54分46秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to ADMIN> 
+<2014-10-16 下午02时54分46秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to RESUMING> 
+<2014-10-16 下午02时54分48秒 CST> <Notice> <Server> <BEA-002613> <Channel "Default" is now listening on 172.30.3.25:7011 for protocols iiop, t3, ldap, http.> 
+<2014-10-16 下午02时54分48秒 CST> <Notice> <WebLogicServer> <BEA-000331> <Started WebLogic Admin Server "xhtestserver" for domain "xhtestdomain" running in Development Mode> 
+<2014-10-16 下午02时54分48秒 CST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to RUNNING> 
+<2014-10-16 下午02时54分48秒 CST> <Notice> <WebLogicServer> <BEA-000360> <Server started in RUNNING mode> 
+^C
+[GM5220a01][weblogic][/xhprod/domains/xhtestdomain]#
