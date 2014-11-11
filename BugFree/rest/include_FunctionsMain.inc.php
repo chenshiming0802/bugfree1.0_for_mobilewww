@@ -3,6 +3,9 @@ header("Content-Type: text/json; charset=utf-8");
 header("Cache-Control:no-cache");
 l("");
 init();
+global $BugConfig;
+$BugConfig["Language"] = "Chinese";
+$BugConfig["CssStyle"] = "Default";
 
 function request($key,$defaultValue=null){
 
@@ -85,6 +88,12 @@ function querySql($SQL){
     global $MyDB;
     return $MyDB->query($SQL);
 }
+function insertBySql($SQL){
+    l("insertBySql:".$SQL);    
+    global $MyDB;
+    $MyDB->query($SQL);  
+    return $MyDB->insert_ID();  
+}
 
 //查询第一条记录信息
 function getRowBySql($SQL){
@@ -122,7 +131,6 @@ function getListBySql($SQL,$listKey=null){
 //根据sql查询list数据 如果listKey不为空，则作为list的key信息
 function getListPageBySql($SQL,$pageNo,$pageSize,$listKey=null){
    $SQL .= " limit ". (($pageNo-1)*$pageSize) . ',' . ($pageSize);
-   //echo $SQL."<HR>";
    return getListBySql($SQL,$listKey);
 }
 
@@ -257,6 +265,7 @@ function rest_bugAddFile($userName,$ProjectID,$BugIdList)
     global $MyDB;
     global $BugConfig;
     global $TplConfig;
+    //var_dump($BugConfig);
 
     // Explode the BugIdList to array.
     $BugIdList = explode(",",$BugIdList);
@@ -273,6 +282,7 @@ function rest_bugAddFile($userName,$ProjectID,$BugIdList)
         if(!empty($BugFileList["name"][$I]))
         {
             // Set file title.
+            /*
             if(!empty($_POST["FileTitle"][$I]))
             {
                 $FileTitle = $_POST["FileTitle"][$I];
@@ -281,15 +291,27 @@ function rest_bugAddFile($userName,$ProjectID,$BugIdList)
             {
                 $FileTitle = $BugFileList["name"][$I];
             }
+            */
 
+            // Get file type.
+            $FileType = explode(".",$BugFileList["name"][$I]);
+            $FileType = strtolower($FileType[1]);
+
+            $SQL = "SELECT count(*) count FROM BugHistory t  where BugID='{$BugIdList[0]}'";
+            $model = getRowBySql($SQL);
+           
+            $FileTitle = $model["count"]."_{$userName}.{$FileType}";
             // Push FileTitle to $FileTitleList.
+            //var_dump($FileTitle);
+            //die();
             $FileTitleList[] = $FileTitle;
 
             // Get fize size.
             $FileSize = $BugFileList["size"][$I];
 
             // Judge the fize.
-            if($FileSize > $BugConfig["File"]["MaxFileSize"])
+            //var_dump($BugFileList);
+            if(false && $FileSize > $BugConfig["File"]["MaxFileSize"])
             {
                 $ResultInfo["Success"]     = false;
                 $ResultInfo["ErrorInfo"][] = $FileTitle . ":Size exceed,max size:".$BugConfig["File"]["MaxFileSize"].",current size:".$FileSize ;
@@ -308,9 +330,7 @@ function rest_bugAddFile($userName,$ProjectID,$BugIdList)
                 }
             }
 
-            // Get file type.
-            $FileType = explode(".",$BugFileList["name"][$I]);
-            $FileType = strtolower($FileType[1]);
+
 
             // Change dangerous file to txt.
             if(in_array($FileType,$BugConfig["File"]["DangerousTypeList"]) or empty($FileType))
@@ -339,7 +359,7 @@ function rest_bugAddFile($userName,$ProjectID,$BugIdList)
                 if(!@mkdir($FullTodayPath))
                 {
                     $ResultInfo["Success"]     = false;
-                    $ResultInfo["ErrorInfo"][] = $TplConfig["AddBug"]["CantCreateDIR"] . ": " . $FullTodayPath;;
+                    $ResultInfo["ErrorInfo"][] = "Can't create directory!" . ": " . $FullTodayPath;;
                     return $ResultInfo;
                 }
             }
@@ -350,7 +370,7 @@ function rest_bugAddFile($userName,$ProjectID,$BugIdList)
             if(!@copy ($BugFileList["tmp_name"][$I],$FullTodayPath . "/" . $PartFileName))
             {
                 $ResultInfo["Success"]     = false;
-                $ResultInfo["ErrorInfo"][] = $TplConfig["AddBug"]["CantCopyFile"] . ": " . $FullFileName;
+                $ResultInfo["ErrorInfo"][] = "Can't copy the file(s)!" . ": " . $FullFileName;
                 continue;
             }
 
@@ -377,5 +397,173 @@ function rest_bugAddFile($userName,$ProjectID,$BugIdList)
         $ResultInfo["FileList"] = @join(",",$FileTitleList);
     }
     return $ResultInfo;
+}
+
+
+
+/*修改了CssStyle路径 "../Include/LangFile/" */
+function rest_bugCreateMailMessage($BugIdList,$Action,$Notes){
+    global $BugConfig;
+    global $TPL;
+    if(empty($BugIdList))
+    {
+        return false;;
+    }
+    // Get css style.
+    $CssStyle = join("",file("../Include/LangFile/".$BugConfig["Language"].$BugConfig["CssStyle"].".css"));
+    $TPL->assign("CssStyle",$CssStyle);
+
+    // Bug Info.
+    $TPL->assign("BugList",rest_bugGetInfo("Medium"," WHERE BugID".dbCreateIN($BugIdList)));
+
+    // Change info.
+    $TPL->assign("ActionInfo", date("Y-m-d H:i") . " " . $Action . " By ".$_SESSION["BugRealName"]);
+    $TPL->assign("Notes",sysHtml2Txt(stripslashes($Notes)));    // Because the Notes are $_POST vars and has formatted  by addslashes(), so strip the slahes here.
+
+    // Get change info in html.
+    return ($TPL->fetch("MailChange.tpl"));
+}
+
+/*修改了phpmailer路径 "../Include/LangFile/" ,祖师 $MyJS->*/
+function rest_sysMail($ToList,$CCList,$Subject,$Message)
+{
+    require_once("../Include/Class/PhpMailer/class.phpmailer.php");
+    global $BugConfig;
+    global $MyJS;
+
+    // Create an object of PHPMailer class and set the send method
+    $Mail = new PHPMailer();
+    switch(strtoupper($BugConfig["Mail"]["SendMethod"]))
+    {
+        case "SMTP":
+            $Mail->isSMTP();
+            $Mail->Host     = $BugConfig["Mail"]["SendParam"]["Host"];
+            $Mail->SMTPAuth = $BugConfig["Mail"]["SendParam"]["SMTPAuth"];
+            $Mail->Username = $BugConfig["Mail"]["SendParam"]["Username"];
+            $Mail->Password = $BugConfig["Mail"]["SendParam"]["Password"];
+            break;
+        case "MAIL":
+            $Mail->isMail();
+            break;
+        case "SENDMAIL":
+            $Mail->isSendmail();
+            break;
+        case "QMAIL":
+            $Mail->isQmail();
+            break;
+    }
+
+    // Define From Address.
+    $Mail->From     = $BugConfig["Mail"]["FromAddress"];
+    $Mail->FromName = $BugConfig["Mail"]["FromName"];
+
+    // Add To Address.
+    foreach($ToList as $To)
+    {
+        $Mail->addAddress($To);
+    }
+    if(is_array($CCList))
+    {
+        foreach($CCList as $CC)
+        {
+            $Mail->addCC($CC);
+        }
+    }
+    // Add Subject.
+    $Mail->Subject  =  stripslashes($Subject);
+
+    // Set Body.
+    $Mail->IsHTML(true);
+    $Mail->CharSet = $BugConfig["Charset"];
+    $Mail->Body    = stripslashes($Message);
+    if(!$Mail->Send())
+    {
+       //$MyJS->alert($Mail->ErrorInfo);
+    }
+}
+
+
+
+
+function rest_bugGetInfo($Fields = "Mini", $Where = "", $ShortTitleLength = 20, $Append = true)
+{
+    global $MyDB;
+
+    // Create the first part of the SQL according to the QueryMode.
+    if($Fields == "Mini")
+    {
+        $SQL = " SELECT BugID,BugTitle FROM BugInfo ";
+    }
+    elseif($Fields == "Medium")
+    {
+        $SQL = " SELECT ProjectID,ModuleID,BugID,BugSeverity,BugTitle,OpenedBy,AssignedTo,MailTo,ResolvedBy,BugStatus,Resolution FROM BugInfo ";
+    }
+    elseif($Fields == "Max" or $Fields == "All")
+    {
+        $SQL = "SELECT * FROM BugInfo ";
+    }
+    else
+    {
+        $Fields = explode(",", $Fields);
+        
+        /* BugID, ProjectID, ModuleID, BugTitle must in the fields list. */
+        $FieldsList["BugID"]     = "BugID";
+        $FieldsList["ProjectID"] = "ProjectID";
+        $FieldsList["ModuleID"]  = "ModuleID";
+        $FieldsList["BugTitle"]  = "BugTitle";
+        
+        /* Merge the $Fields to $FieldsList. */
+        foreach($Fields as $FieldName)
+        {
+            $FieldsList[$FieldName] = $FieldName;
+        }
+        
+        /* Create the query sql. */
+        $FieldsList = join(",", $FieldsList);
+        $SQL = " SELECT $FieldsList FROM BugInfo ";
+    }
+    
+    /* Merge the $_SESSION["BugUserAclSQL"] and param $Where. */
+    //$SQL .= dbMergeSQL($Where, $_SESSION["BugUserAclSQL"]);
+    $SQL .= $Where;
+ 
+    // Execute the SQL.
+    $ResultID = $MyDB->query($SQL);
+    if($ResultID)
+    {
+        // Get all user list.
+        $BugUserList = bugGetUserList();
+
+        while($BugInfo = $ResultID->fetchRow())
+        {
+            // Set the realname of MailTo,AssignedTo, OpenedBy, ResolvedBy, ClosedBy, LastEditedBy
+            foreach($BugInfo as $Key => $Value)
+            {
+                if($Key == "MailTo")
+                {
+                    $MailToList = explode(",",$Value);
+                    foreach($MailToList AS $MailTo)
+                    {
+                        $BugInfo["MailToRealName"][] = !empty($BugUserList[$MailTo]) ? $BugUserList[$MailTo] : $MailTo;
+                    }
+                    $BugInfo["MailToRealName"] = join(",",$BugInfo["MailToRealName"]);
+                }
+                elseif(eregi("To|By",$Key))
+                {
+                    $RealName           = $Key . "RealName";
+                    $BugInfo[$RealName] = !empty($BugUserList[$Value]) ? $BugUserList[$Value] : $Value;
+                }
+            }
+
+            // Set the short title.
+            $BugInfo["ShortBugTitle"]   = sysSubStr($BugInfo["BugTitle"],$ShortTitleLength,$Append);
+            $BugList[$BugInfo["BugID"]] = $BugInfo;
+        }
+        return $BugList;
+    }
+    else
+    {
+        die($MyDB->errorMsg());
+    }
 }
 ?>

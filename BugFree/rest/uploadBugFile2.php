@@ -16,7 +16,7 @@ $FileResultInfo = rest_bugAddFile($userName,$model["ProjectID"],$model["BugID"])
 $srModel = array();
 if($FileResultInfo["Success"] and !empty($FileResultInfo["FileList"]))
 {
-    $History = "<B>Add File</B> \"$FileResultInfo[FileList]\"";
+    $History = "<B>Add File From Mobile</B> \"$FileResultInfo[FileList]\"";
     $SQL_insert =   " INSERT INTO BugHistory(BugID,UserName,Action,FullInfo,ActionDate) VALUES(
                                       '{$bugId}','{$userName}','Edited','{$History}',now())";
 	querySql($SQL_insert);	

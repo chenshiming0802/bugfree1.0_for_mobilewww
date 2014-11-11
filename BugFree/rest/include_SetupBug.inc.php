@@ -49,10 +49,10 @@ $BugConfig["BaseURL"]   = "http://" . $_SERVER["SERVER_NAME"] . ":" . $_SERVER["
 require_once("../Include/ConfigBug.inc.php");        // Config file.
 require_once("../Include/FunctionsMain.inc.php");    // Functions file.
 require_once('../Include/Class/ADO/adodb.inc.php');        // ADO class.
-//require_once("Smarty/Smarty.class.php");  // Smarty class.
-//require_once('JS.class.php');             // JS class.
-//require_once('Html.class.php');           // Html class.
-//require_once('Page.class.php');           // Page class.
+require_once("../Include/Class/Smarty/Smarty.class.php");  // Smarty class.
+require_once('../Include/Class/JS.class.php');             // JS class.
+require_once('../Include/Class/Html.class.php');           // Html class.
+require_once('../Include/Class/Page.class.php');           // Page class.
 
 /* Connect to BugFree database server and return the global DB handler -- $MyDB which is used anywhere and set the FETCH_MODE to ASSOC. */
 $MyDB = &ADONewConnection("mysql");
@@ -68,11 +68,11 @@ if(!empty($BugConfig["UserDB"]))
 }
 
 /* Init smarty class. */
-//$TPL = new Smarty;
-//$TPL->caching       = false;
-//$TPL->template_dir  = $BugConfig["ScriptDir"] . "/" . 'Template';
-//$TPL->compile_dir   = $BugConfig["ScriptDir"] . "/" . 'Compile';
-//$TPL->compile_check = true;
+$TPL = new Smarty;
+$TPL->caching       = false;
+$TPL->template_dir  = $BugConfig["ScriptDir"] . "/../" . 'Template';
+$TPL->compile_dir   = $BugConfig["ScriptDir"] . "/../" . 'Compile';
+$TPL->compile_check = true;
 
 /* Init JS, Html, Page classes. */
 //$MyJS   = new JS;
