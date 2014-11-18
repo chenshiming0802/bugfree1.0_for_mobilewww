@@ -3,30 +3,34 @@
 <%@ page import="net.sf.json.*"%>
 <%@ page import="org.apache.commons.httpclient.*"%>
 <%@ page import="org.apache.commons.httpclient.methods.*"%>
+<%@ page import="org.apache.commons.httpclient.methods.multipart.*"%>
 <%@ page import="javax.crypto.*"%>
 <%@ page import="java.security.*"%>
 <%@ page import="java.io.*"%>
 <%@ page import="javax.crypto.spec.*"%>
+<%@ page import="org.apache.commons.fileupload.*"%>
+<%@ page import="org.apache.commons.fileupload.disk.*"%>
+<%@ page import="org.apache.commons.fileupload.servlet.*"%>
  
 <%!
 // ucore1 ADE1C062E16EAB4AACA11F7F89053FFD==>chenshiming
-//login test: http://testenv.bsp.bsteel.net/baosteel_cas2/service_proxy2.jsp?_SERVICE_=dologin2.php&userName=chenshiming&userPassword=password
-//query test:http://testenv.bsp.bsteel.net/baosteel_cas2/service_proxy2.jsp?_SERVICE_=buginfos2.php&pageIndex=1&pageSize=3&isAssignMe=1  
+//fileupload test(isDevelopMode=true): http://127.0.0.1:8081/service_proxy/service_proxy_withfils2.jsp?_SERVICE_=uploadBugFile2.php&bugId=0000004   
+
 public static boolean isDevelopMode = false;
 
-
-
-	public static String jsonProxyPost(HttpServletRequest request)
+	public static String jsonProxyPost(ServletContext servletContext,HttpServletRequest request)
 			throws Exception {
 		String aesPassword = "73C58BAFE578C59366D8C995CD0B9D6D";	
 		request.setCharacterEncoding("utf-8");
 		String url = "http://service.bsteel.com/BugFree1.0/rest/";
 		if(isDevelopMode){
 			url = "http://127.0.0.1:82/BugFree/rest/";//for dev
-		}	
-		System.out.println("server-url:"+url);	
-		String service = request.getParameter("_SERVICE_");
-
+		}
+		Map requestParamMap = getRequestFileItem(servletContext,request);
+		Map params = (Map)requestParamMap.get("fieldParams");
+		System.out.println("params.params="+params);
+		String service = (String)params.get("_SERVICE_");
+		/*
 		Enumeration en = request.getParameterNames();
 		HashMap params = new HashMap();
 		while (en.hasMoreElements()) {
@@ -34,13 +38,19 @@ public static boolean isDevelopMode = false;
 			String value = request.getParameter(key);
 			params.put(key, value);
 		}
+		System.out.println("--->"+params);
+		*/
 		
-
+	
 		boolean isLogin = false;
 		System.out.println("service="+service);
 		if(service.equals("dologin2.php")){isLogin = true;}
+		System.out.println("isLogin="+isLogin);
 		if(!isLogin){
-			String ucore1 = request.getHeader("ucore1");
+			String ucore1 = (String)request.getHeader("ucore1");
+			if(isDevelopMode){
+				ucore1 = "ADE1C062E16EAB4AACA11F7F89053FFD";//for dev
+			}
 			System.out.println("ucore1="+ucore1);
 			if(ucore1!=null){
 				byte[] decryptFrom = parseHexStr2Byte(ucore1);
@@ -49,19 +59,22 @@ public static boolean isDevelopMode = false;
 				params.put("userName",sessionUserName);
 			}
 		}
+		
+		String fileFieldName = (String)requestParamMap.get("fileFieldName");
+		File file = (File)requestParamMap.get("file");
+		params = (HashMap)requestParamMap.get("fieldParams");
+ 
 		System.out.println("url="+url);
 		System.out.println("service="+service);
 		System.out.println("params="+params);
-		String json = jsonProxyPost(url, service, params);
+		String json = jsonProxyPost(url, service, params,fileFieldName,file);
 		System.out.println("json result="+json);
 		if(isLogin){
 			if(json==null){
 				return "";
 			}
-			System.out.println("json="+json);	
 			JSONObject jsonObject = JSONObject.fromObject(json);	   	
 		   	String resultFlag = jsonObject.getString("resultFlag");
-		   	System.out.println("resultFlag="+resultFlag);
 		   	if(resultFlag!=null && resultFlag.equals("0")){
 		   		String sessionUserName = jsonObject.getString("userName");
 			   	byte[] encryptResult = encrypt(sessionUserName, aesPassword);
@@ -74,17 +87,62 @@ public static boolean isDevelopMode = false;
 	}
 
 
+	public static Map getRequestFileItem(ServletContext servletContext,HttpServletRequest request) throws Exception{
+		DiskFileItemFactory factory = new DiskFileItemFactory();
+		//ServletContext servletContext = this.getServletConfig().getServletContext();
+		File repository = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
+		factory.setRepository(repository);
+		// Create a new file upload handler
+		ServletFileUpload upload = new ServletFileUpload(factory);
+		// Parse the request
+		List items = upload.parseRequest(request);
+		
+		Map ret = new HashMap();
+		Map fieldParams = new HashMap();
+		for(int i=0,j=items.size();i<j;i++){
+			FileItem item = (FileItem)items.get(i);
+			if (item.isFormField()) {
+				fieldParams.put(item.getFieldName(),item.getString("UTF-8"));
+			}else{
+				//文件存储
+				String fileName = (item.getName()==null)?""+System.currentTimeMillis():item.getName();
 
-
+				String tempFileName = repository.getPath()+File.separator+fileName;
+				File file = new File(tempFileName);
+				System.out.println("tempFileName:"+tempFileName);
+				item.write(file);	
+				ret.put("fileFieldName", item.getFieldName());
+				ret.put("file", file);			
+			}
+		}
+		
+		ret.put("fieldParams",fieldParams);
+		System.out.println("fieldParams.ret="+ret);
+		/*
+		if(items!=null && items.get(0)!=null){
+			FileItem item = (FileItem)items.get(0);
+			String tempFileName = repository.getPath()+File.separator+System.currentTimeMillis();
+			File file = new File(tempFileName);
+			System.out.println("tempFileName:"+tempFileName);
+			item.write(file);	
+			ret.put("fileFieldName", item.getFieldName());
+			ret.put("file", file);
+		}else{
+			ret.put("fileFieldName", null);
+			ret.put("file", null);
+		}
+		*/
+		return ret;
+	}
 	
 	public static String jsonProxyPost(String url, String service,
-			HashMap params) {
-		System.out.println("jsonProxyPost:" + url  + service + "  params:" + params);
+			Map params,String fileFieldName,File file) {
+		System.out.println("jsonProxyPost:" + url  + service + "  params:" + params+" fileFieldName:"+fileFieldName);
 		String returnMessage = null;
 		try {
-			returnMessage = proxyPost(url, service, params);
+			returnMessage = proxyPost(url, service, params,fileFieldName,file);
 		} catch (Exception e) {
-			// e.printStackTrace();
+			 e.printStackTrace();
 			returnMessage = "{\"resultFlag\":\"1\",\"resultMessage\":\"Proxy connect reject!\"}";
 		}
 		System.out.println("jsonProxy return:"+returnMessage);
@@ -92,26 +150,37 @@ public static boolean isDevelopMode = false;
 
 	}
 
-	public static String proxyPost(String url, String service, HashMap params)
+	public static String proxyPost(String url, String service, Map params,String fileFieldName,File file)
 			throws Exception {
-		if (params == null) {
-			params = new HashMap();
-		}
-
+		params = (params==null)?new HashMap():params;
+ 
+		
 		String response = null;
 		HttpClient client = new HttpClient();
 		PostMethod method = new UTF8PostMethod(url + service);
 
 		Iterator it = params.keySet().iterator();
-		NameValuePair[] pairs = new NameValuePair[params.size()];
-		int i = 0;
+		//NameValuePair[] pairs = new NameValuePair[params.size()];
+		Part[] pairs = null;
+		int index = 0;
+		if(file!=null){
+			pairs = new Part[params.size()+1];
+			pairs[0] = new FilePart(fileFieldName, file);
+			System.out.println(fileFieldName+"==="+file);
+			index++;
+		}else{
+			pairs = new Part[params.size()];
+		}
 		while (it.hasNext()) {
 			String key = (String) it.next();
 			String value = (String) params.get(key);
-			pairs[i] = new NameValuePair(key, value);
-			i++;
+			//pairs[i] = new NameValuePair(key, value);
+			pairs[index] = new StringPart(key,value, "UTF-8");
+			index++;
 		}
-		method.setRequestBody(pairs);
+//		method.setRequestBody(pairs);
+ 
+		method.setRequestEntity(new MultipartRequestEntity(pairs,method.getParams()));	
 		try {
 			client.executeMethod(method);
 			if (method.getStatusCode() == HttpStatus.SC_OK) {
@@ -225,5 +294,5 @@ response.setHeader("Access-Control-Allow-Origin","*");
 response.setHeader("Access-Control-Allow-Methods","POST, GET"); 
 response.setHeader("Access-Control-Allow-Headers","ucore1"); 
 response.setHeader("Access-Control-Max-Age","1728000"); 
-out.println(jsonProxyPost(request));
+out.println(jsonProxyPost(this.getServletContext(),request));
 %>
