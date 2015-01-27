@@ -64,6 +64,10 @@ for test:http://127.0.0.1:82/BugFree/rest/test_addBug2.php
                 now()
             )";
     querySql($SQL);
+
+    $bug = getRowBySql("select t.* from BugInfo t where t.BugID='{$bugId}'");	
+    rest_UpdateBugsendSms($bug,$assignedTo,$UserName);//for bsteel sms
+
     $arrays["resultFlag"] = "0";
     $arrays["resultMessage"] = "";
     $arrays["bugId"] = $bugId;

@@ -33,6 +33,9 @@
             if(querySql($SQL_update)){
                 querySql($SQL_insert);
                 $arrays["resultFlag"] = "0";
+
+                $bug = getRowBySql("select t.* from BugInfo t where t.BugID='{$BugID}'");	
+                rest_UpdateBugsendSms($bug,$AssignedTo,$UserName);//for bsteel sms
 			}else{
                 $arrays["resultFlag"] = "1";
                 $arrays["resultMessage"] = " db error!";

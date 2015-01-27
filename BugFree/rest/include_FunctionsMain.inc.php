@@ -566,4 +566,92 @@ function rest_bugGetInfo($Fields = "Mini", $Where = "", $ShortTitleLength = 20, 
         die($MyDB->errorMsg());
     }
 }
+
+
+
+//修改或者创建bug会发送短信
+function rest_UpdateBugsendSms($BugInfo,$postAssignedTo,$sessionBugUserName){
+    $bsteel_group = rest_GetGroupUser("东方钢铁");
+    //var_dump($bsteel_group);
+    $baosight_xs_m_group = rest_GetGroupUser("协商部外协");   
+    $baosight_xieshang_group = rest_GetGroupUser("协商部电子商务"); 
+    $baosight_system_group = rest_GetGroupUser("系统服务部");
+    $baosight_group = $baosight_xs_m_group . $baosight_xieshang_group .$baosight_system_group;
+
+    $bsteel_group = split(",",$bsteel_group);
+    $baosight_xs_m_group = split(",",$baosight_xs_m_group);
+    $baosight_xieshang_group = split(",",$baosight_xieshang_group);
+    $baosight_system_group = split(",",$baosight_system_group);
+    $baosight_group = split(",",$baosight_group);
+    /* Set SMS*/
+    $BgOpenedBy =false;         //宝钢创建
+    $BxAssignedTo =false;       //指派给宝信
+    $BgLastEditedBy = false;    //最后宝钢修改
+    $AssignedToBsDate = $BugInfo['AssignedToBsDate']; //首次指派给宝信时间
+    //判断创建人是否是东方钢铁的
+    foreach($bsteel_group as $OpenedBy){
+        if(strstr($OpenedBy,$BugInfo["OpenedBy"])!=""){
+            $BgOpenedBy=true;
+            //echo "ddd1";
+        }
+    }
+    //判断要修改的指派人是否是宝信的
+    foreach($baosight_group as $AssignedTo){
+        if(strstr($AssignedTo,$postAssignedTo)!=""){
+            $BxAssignedTo=true;
+            //echo "ddd2";
+        }
+    }
+    //判断最后的修改人是否是东方钢铁的
+    foreach($bsteel_group as $LastEditedBys){
+    //  echo $LastEditedBy;
+        if(strstr($LastEditedBys,$BugInfo["LastEditedBy"])!=""){
+            $BgLastEditedBy=true;
+    //        echo "ddd3";
+        }
+    }
+    //var_dump($BgOpenedBy);
+    //var_dump($BxAssignedTo);
+    //var_dump($BgLastEditedBy);
+
+    //插入短信息
+    //判断是否是指派给宝信
+    if(true || ($BxAssignedTo and $BgOpenedBy and $BgLastEditedBy)){
+        $BugUser=bugGetUserInfo($postAssignedTo);
+     
+        $tt1 = "在东方钢铁客户服务系统中有事件编号为【".$BugInfo['BugID']."】，标题为【";
+        $tt2 = "】的事件待您处理!";
+        $tt1 = iconv("UTF-8","GB2312//IGNORE",$tt1);
+        $tt2 = iconv("UTF-8","GB2312//IGNORE",$tt2);
+
+        $tt = $tt1.$BugInfo['BugTitle'].$tt2;
+
+        //var_dump($BugUser['CellPhone']);
+        $BugUser['CellPhone'] = "13764988912";//TODO 测试短信都发给陈市明
+        $SmsSql="Insert BugSMS(BugID,BugTitle,OpenedBy,AssignedTo, AssignedDate,SMSCreateDate,CellPhone,SMSStatus,SMSInfo,SMSType) VALUES('".$BugInfo['BugID']."','".$BugInfo['BugTitle']."','".$sessionBugUserName."','".$BugInfo['AssignedTo']."','".$BugInfo['AssignedDate']."',NOW(),'".$BugUser['CellPhone']."','01','".$tt."','1')";
+        //echo $SmsSql;
+        //得到首次指派宝信时间
+        if($BugInfo["AssignedToBsDate"] == "0000-00-00 00:00:00")
+        {
+            $AssignedToBsDate = date("Y-m-d: H:i:s");
+        }
+        
+        //querySql($SmsSql);//TODO 调试期间，暂关闭
+    }
+
+}
+ 
+function rest_GetGroupUser($GroupName)
+{
+    $GroupName = iconv("UTF-8","GB2312//IGNORE",$GroupName);
+
+    $SQL = "select GroupUser from BugGroup Where GroupName = '" . $GroupName . "'";
+    $GroupInfo = getListBySql($SQL);
+
+    foreach($GroupInfo as $key=>$model){ 
+        $GroupUser = $model["GroupUser"];
+    }
+    return $GroupUser;
+
+}
 ?>
